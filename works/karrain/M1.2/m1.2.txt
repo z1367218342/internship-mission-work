@@ -1,0 +1,13 @@
+使用html爬取数据：
+场景：没有公开API的网站，静态网站（动态就需要Selenium）
+优点：灵活性高，可以获取网页任意内容
+缺点：无法抓取动态数据
+使用API:
+场景：爬取动态网页，有公开API的网站
+优点：无需解析，直接获取数据，稳定性高
+缺点：公开的API的可获取信息较少，想获得更多数据需要付费
+
+常见爬虫异常：
+网络异常:包括ConnectionError,TimeoutError,SSLError,ProxyError
+404:Not Found  403:Forbidden 500:Internal Server Error
+还有反爬虫机制的异常：比如IP封禁，爬取网站次数太多会受到限制
