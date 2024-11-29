@@ -5,12 +5,12 @@ def solve(handle):
   url = f"https://codeforces.com/api/user.info?handles={handle}"
   try:
     response = requests.get(url)
-    response.raise_for_status()  # 检查http响应状态
+    response.raise_for_status()
     data = response.json()
     if data['status'] != 'OK':
       sys.stderr.write(f"API 返回异常: {data.get('comment', '未知错误')}\n")
       sys.exit(1)
-    user_info = data['result'][0]  #获取用户信息
+    user_info = data['result'][0]
     if 'rating' in user_info:
       result = {
         "handle": user_info['handle'],
@@ -21,8 +21,6 @@ def solve(handle):
       result = {
         "handle": user_info['handle']
       }
-
-    # print
     result_json = json.dumps(result, ensure_ascii=False)
     sys.stdout.write(result_json + "\n")
     sys.exit(0)
